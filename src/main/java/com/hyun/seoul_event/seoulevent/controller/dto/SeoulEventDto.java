@@ -9,10 +9,17 @@ import lombok.Getter;
 public class SeoulEventDto {
 
     private String title;
+    private String region;
+    private String location;
     private String imageUrl;
 
     public static SeoulEventDto of(SeoulEvent seoulEvent) {
-        return new SeoulEventDto(seoulEvent.getTitle(), seoulEvent.getImageUrl());
+        return new SeoulEventDto(
+                seoulEvent.getTitle(),
+                seoulEvent.getRegion(),
+                seoulEvent.getLocation(),
+                seoulEvent.getImageUrl()
+        );
     }
 
 }

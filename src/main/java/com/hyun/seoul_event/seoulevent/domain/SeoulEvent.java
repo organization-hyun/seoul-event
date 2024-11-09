@@ -16,6 +16,10 @@ public class SeoulEvent {
 
     private String title;
 
+    private String region;
+
+    private String location;
+
     private String imageUrl;
 
 }
