@@ -21,10 +21,15 @@ public class SeoulEventBatchService {
     public void fetchAndSaveAllSeoulEvents() {
         List<JsonNode> collectedData = dataCollector.collectAllEvents();
 
-        collectedData.stream()
-                .map(SeoulEventIfDto::fromJson)
-                .map(SeoulEventIfDto::toEntity)
-                .forEach(repository::save);
+        for (JsonNode jsonNode : collectedData) {
+            try {
+                SeoulEventIfDto seoulEventIfDto = SeoulEventIfDto.fromJson(jsonNode);
+                repository.save(seoulEventIfDto.toEntity());
+            } catch (Exception e) {
+                log.error("seoulEventIfDto 변환 중 오류 발생: {} {}", e.getMessage(), jsonNode.toString());
+//                throw new RuntimeException(e);
+            }
+        }
 
         if (collectedData.isEmpty()) {
             log.info("수집된 데이터가 없습니다.");
