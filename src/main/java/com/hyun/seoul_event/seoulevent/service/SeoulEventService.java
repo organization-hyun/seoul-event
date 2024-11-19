@@ -17,7 +17,7 @@ public class SeoulEventService {
     private final SeoulEventRepository seoulEventRepository;
 
     public SeoulEventsDto getSeoulEvents() {
-        List<SeoulEvent> seoulEvents = seoulEventRepository.findAll();
+        List<SeoulEvent> seoulEvents = seoulEventRepository.findTop5ByOrderByIdDesc();
         return SeoulEventsDto.of(seoulEvents);
     }
 
