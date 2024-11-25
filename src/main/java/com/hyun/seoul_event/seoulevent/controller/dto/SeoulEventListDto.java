@@ -9,13 +9,13 @@ import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
-public class SeoulEventsDto {
+public class SeoulEventListDto {
 
     private List<SeoulEventDto> seoulEvents;
 
-    public static SeoulEventsDto of(List<SeoulEvent> seoulEvents) {
-        return new SeoulEventsDto(
-                seoulEvents.stream()
+    public static SeoulEventListDto of(List<SeoulEvent> seoulEventList) {
+        return new SeoulEventListDto(
+                seoulEventList.stream()
                         .map(SeoulEventDto::of)
                         .collect(Collectors.toList())
         );
