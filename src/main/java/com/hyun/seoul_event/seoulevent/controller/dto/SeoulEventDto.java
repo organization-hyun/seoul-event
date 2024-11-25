@@ -1,4 +1,4 @@
-package com.hyun.seoul_event.seoulevent.adapter.in.web.dto;
+package com.hyun.seoul_event.seoulevent.controller.dto;
 
 import com.hyun.seoul_event.seoulevent.domain.SeoulEvent;
 import lombok.AllArgsConstructor;

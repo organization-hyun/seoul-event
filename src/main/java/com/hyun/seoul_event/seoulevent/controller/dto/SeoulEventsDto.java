@@ -1,4 +1,4 @@
-package com.hyun.seoul_event.seoulevent.adapter.in.web.dto;
+package com.hyun.seoul_event.seoulevent.controller.dto;
 
 import com.hyun.seoul_event.seoulevent.domain.SeoulEvent;
 import lombok.AllArgsConstructor;
@@ -9,13 +9,13 @@ import java.util.stream.Collectors;
 
 @Getter
 @AllArgsConstructor
-public class SeoulEventListDto {
+public class SeoulEventsDto {
 
     private List<SeoulEventDto> seoulEvents;
 
-    public static SeoulEventListDto of(List<SeoulEvent> seoulEventList) {
-        return new SeoulEventListDto(
-                seoulEventList.stream()
+    public static SeoulEventsDto of(List<SeoulEvent> seoulEvents) {
+        return new SeoulEventsDto(
+                seoulEvents.stream()
                         .map(SeoulEventDto::of)
                         .collect(Collectors.toList())
         );
