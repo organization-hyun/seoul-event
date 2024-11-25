@@ -8,6 +8,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class SeoulEventDto {
 
+    private Long id;
     private String title;
     private String region;
     private String location;
@@ -15,6 +16,7 @@ public class SeoulEventDto {
 
     public static SeoulEventDto of(SeoulEvent seoulEvent) {
         return new SeoulEventDto(
+                seoulEvent.getId(),
                 seoulEvent.getTitle(),
                 seoulEvent.getRegion(),
                 seoulEvent.getLocation(),
