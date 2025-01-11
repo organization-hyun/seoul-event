@@ -9,11 +9,11 @@ public interface SeoulEventApiClient {
 
     @GetMapping("/{apiKey}/{type}/{service}/{startIndex}/{endIndex}")
     String fetchEvents(
-            @PathVariable String apiKey,
-            @PathVariable String type,
-            @PathVariable String service,
-            @PathVariable int startIndex,
-            @PathVariable int endIndex
+            @PathVariable(name = "apiKey") String apiKey,
+            @PathVariable(name = "type") String type,
+            @PathVariable(name = "service") String service,
+            @PathVariable(name = "startIndex") int startIndex,
+            @PathVariable(name = "endIndex") int endIndex
     );
 
 }
